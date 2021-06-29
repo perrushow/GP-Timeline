@@ -1,0 +1,130 @@
+/* Import Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+.header {
+    height: 70px;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    background-color: #413d3d;
+    align-items: center ;
+    color: white;
+    
+  
+}
+.header img{
+    width: 50px;
+}
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background-color: #101010;
+}
+.timelineGP {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    position:relative;
+    
+}
+
+.timelineGP ul {
+    list-style: none;
+}
+.timelineGP ul li {
+    padding: 20px;
+    background-color: #1e1f22;
+    color: white;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+.timelineGP ul li:last-child { /*  usando last-child , ultimo elemento do Daddy */
+    margin-bottom: 0;
+
+}
+.timelineGP-content h1 {
+ font-size: 30px;
+ font-weight: 500;
+ line-height: 30px;
+ margin-bottom: 10px;
+
+}
+.timelineGP-content p { /*  Tentei deixar mobile friendly*/
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+.timelineGP-content .date {
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.briefcase {
+    width: 80px;
+}
+@media only screen and (min-width: 768px){  /*Media Query G|P*/
+    .timelineGP::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        left: 50%;
+        transform: translateX(-50%); /* Para centralizar a linha no meio */
+        background-color: gray;
+    }
+    .timelineGP ul li {
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;
+    }
+    .timelineGP ul li:nth-child(odd){
+        float: left;
+        clear: right;
+        transform: translateX(-30px); /* - (neg) Para acertar o gap */
+        border-radius: 20px 0px 20px 20px;
+    }
+    .timelineGP ul li:nth-child(even){
+        float: right;
+        clear: left;
+        border-radius: 0px 20px 20px 20px;
+        transform: translateX(30px) /* + (posi) Para acertar o gap */ 
+    }
+    .timelineGP ul li::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background-color: gray;
+        border-radius: 50%;
+        top: 0;
+    }
+    .timelineGP ul li:nth-child(odd)::after{ /* odd  (esquerda) */
+        transform: translate(50%, -50%); 
+        right: -30px;
+    }
+    .timelineGP ul li:nth-child(even)::after{ /* even  (bolinha esquerda) */
+        transform: translate(-50%, -50%); 
+        left: -30px;
+    }
+    .timelineGP ul li:hover::after {
+        background-color: rgb(139, 92, 205);
+    }
+    .timelineGP-content .date {
+        position: absolute;
+        top: -25px;
+    }
+}
